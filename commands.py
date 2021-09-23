@@ -1,18 +1,18 @@
 def block(lines):
-	return [f"/block {line}" for line in lines]
+	return [f"/block {line}".strip() for line in lines]
 	
 
 def ban(lines):
-	return [f"/ban {line}" for line in lines]
+	return [f"/ban {line}".strip() for line in lines]
 
 
-def parse(file):
-	return [line for line in file]
+def pretty_print(l):
+	return "\n".join(l)
 
 
 if __name__ == "__main__":
 	f = open("list.txt")
-	lines = parse(f)
+	lines = f.read().splitlines()
 	f_block = open("block_list.txt", "w")
 	f_ban = open("ban_list.txt", "w")
 	block_list = block(lines)
